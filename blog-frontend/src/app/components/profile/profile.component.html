@@ -1,0 +1,49 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h1 class="header-title">Your Posts</h1>
+    <button class="btn btn-primary" (click)="navigateToDashboard()">New Post</button>
+  </div>
+
+  <div class="search-container">
+    <span class="search-icon">🔍</span>
+    <input 
+      type="text" 
+      class="search-input" 
+      [(ngModel)]="searchQuery"
+      (input)="filterPosts()"
+      placeholder="Search posts...">
+  </div>
+
+  <div class="posts-grid">
+    <div *ngIf="filteredPosts.length === 0" class="no-posts">
+      No posts found. Start writing your first post!
+    </div>
+
+    <div *ngFor="let post of filteredPosts" class="post-card">
+      <div *ngIf="!post.isEditing">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-content">{{ post.content }}</p>
+        <div class="post-actions">
+          <button class="btn btn-secondary" (click)="editPost(post)">Edit</button>
+          <button class="btn btn-danger" (click)="deletePost(post._id)">Delete</button>
+        </div>
+      </div>
+
+      <div *ngIf="post.isEditing" class="edit-form">
+        <input 
+          type="text" 
+          class="edit-input" 
+          [(ngModel)]="post.title" 
+          placeholder="Post title">
+        <textarea 
+          class="edit-textarea" 
+          [(ngModel)]="post.content" 
+          placeholder="Post content"></textarea>
+        <div class="post-actions">
+          <button class="btn btn-primary" (click)="saveEdit(post)">Save</button>
+          <button class="btn btn-secondary" (click)="cancelEdit(post)">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

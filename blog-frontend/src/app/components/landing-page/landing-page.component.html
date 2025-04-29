@@ -1,0 +1,21 @@
+<div class="button-container">
+  <button routerLink="/login" class="button login-button">Login</button>
+  <button routerLink="/register" class="button register-button">Register</button>
+</div>
+<div class="landing-container">
+  <h1 class="landing-title">Welcome to the Blog Platform</h1>
+  <p class="landing-subtitle">Discover the latest blog posts:</p>
+
+  <div *ngIf="posts.length === 0" class="no-posts">
+    <p>No posts available. Be the first to create one!</p>
+  </div>
+
+  <div *ngIf="posts.length > 0" class="posts-container">
+    <ul>
+      <li *ngFor="let post of posts" class="post-card">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-content">{{ post.content }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

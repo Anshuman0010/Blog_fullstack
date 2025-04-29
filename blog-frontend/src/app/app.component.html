@@ -1,0 +1,6 @@
+<div style="position: fixed; top: 0; right: 0; padding: 10px;">
+  <div *ngIf="showLogoutButton">
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+</div>
+<router-outlet></router-outlet>

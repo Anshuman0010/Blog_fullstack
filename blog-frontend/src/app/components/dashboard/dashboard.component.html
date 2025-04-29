@@ -1,0 +1,63 @@
+
+<div class="dashboard-container">
+  <div class="navigation-buttons">
+    <button routerLink="/profile" class="btn btn-secondary">Go to Profile</button>
+  </div>
+  
+    <h1>Welcome to Your Dashboard</h1>
+  
+    <!-- Section to create a new post -->
+    <div class="new-post-form">
+      <h2>Create New Post</h2>
+      <form (ngSubmit)="createPost()" #newPostForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            [(ngModel)]="newPost.title"
+            required
+            class="form-control"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            [(ngModel)]="newPost.content"
+            required
+            class="form-control"
+          ></textarea>
+        </div>
+  
+        <button type="submit" [disabled]="!newPostForm.form.valid" class="btn btn-primary">
+          Create Post
+        </button>
+      </form>
+    </div>
+  
+    <!-- Section to display all posts -->
+    <div class="posts-list">
+      <h2>Your Posts</h2>
+      <div *ngIf="posts.length === 0">
+        <p>You have not created any posts yet.</p>
+      </div>
+  
+      <div *ngIf="posts.length > 0">
+        <ul>
+          <li *ngFor="let post of posts">
+            <div *ngIf="!post.isEditing">
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.content }}</p>
+            </div>
+      
+           
+          </li>
+        </ul>
+      </div>      
+    </div>
+  </div>
+  

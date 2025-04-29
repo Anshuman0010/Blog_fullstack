@@ -1,0 +1,29 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns children (buttons) to the right */
+  }
+  
+  .login-button, .register-button, .logout-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .login-button {
+    background-color: #3498db; /* blue */
+  }
+  
+  .register-button {
+    background-color: #2ecc71; /* green */
+  }
+  
+  .logout-button {
+    background-color: #e74c3c; /* red */
+  }
+  
