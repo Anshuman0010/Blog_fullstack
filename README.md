@@ -35,5 +35,4 @@ A full-stack blog application built using Angular, Node.js, Express, and MongoDB
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mean-blog-app.git
-cd mean-blog-app
+git clone https://github.com/Anshuman0010/Blog_fullstack
